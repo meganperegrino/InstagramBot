@@ -71,7 +71,7 @@ class InstagramBot:
         while count < limits:
             try:
                 driver.find_element_by_xpath("//span[@aria-label='Like']").click()
-                print('liked pic #' + str(count)
+                print('liked pic #' + str(count))
                 count += 1
                 time.sleep(36)
             except Exception as e:
@@ -79,7 +79,7 @@ class InstagramBot:
             continue_link = driver.find_element_by_link_text('Next')
             continue_link.click()
             time.sleep(2)
-        print('liked ' + limits + ' pictures in #' + hashtag)
+        print('liked ' + str(limits) + ' pictures in #' + hashtag)
 
 
 
@@ -90,6 +90,6 @@ hashtags = [x.strip() for x in hashtag_input.split(',')]
 limits = 1000 / len(hashtags)
 for hashtag in hashtags:
     print('liking ' + str(limits) + ' pictures in #' + hashtag)
-    megIG.like_photo(hashtag, limits)
+    IG.like_photo(hashtag, limits)
 print('finished liking pictures')
 IG.closeBrowser()
